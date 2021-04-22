@@ -15,13 +15,22 @@ namespace FuncDelegate
                 new Employee{ Id = 102, Name="Mary"}
             };
 
-            Func<Employee, string> selector = employee => "Name = " + employee.Name;
-            IEnumerable<string> names = employees.Select(selector);
+            //Func<Employee, string> selector = employee => "Name = " + employee.Name;
+            static string selector(Employee employee) => "Name = " + employee.Name;
+            //IEnumerable<string> names = employees.Select(selector);
+            IEnumerable<string> names = employees.Select(employee => "Name = " + employee.Name);
 
             foreach (string name in names)
             {
                 Console.WriteLine(name);
             }
+
+            Func<int, int, string> funcDelegate = (firstNumber, secondNumber) => "Sum = " + (firstNumber + secondNumber).ToString();
+
+            static string sum (int firstNumber, int secondNumber) => "Sum = " + (firstNumber + secondNumber).ToString();
+
+            Console.WriteLine(funcDelegate(10, 20));
+            Console.WriteLine(sum(5,6));
         }
     }
 
