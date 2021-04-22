@@ -27,16 +27,28 @@ namespace FuncDelegate
 
             Func<int, int, string> funcDelegate = (firstNumber, secondNumber) => "Sum = " + (firstNumber + secondNumber).ToString();
 
-            static string sum (int firstNumber, int secondNumber) => "Sum = " + (firstNumber + secondNumber).ToString();
+            static string sum(int firstNumber, int secondNumber) => "Sum = " + (firstNumber + secondNumber).ToString();
+
+            string Sum(int firstNumber, int secondNumber)
+            {
+                return "Sum = " + (firstNumber + secondNumber).ToString();
+            }
 
             Console.WriteLine(funcDelegate(10, 20));
-            Console.WriteLine(sum(5,6));
+            Console.WriteLine(sum(5, 6));
         }
     }
 
-    class Employee
+    public class Employee
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Surname { get; set; }
+        public string GetIdentity()
+        {
+            return "Identity = " + Id + Name;
+        }
+
+        public string GetFullName() => Name + " " + Surname;
     }
 }
