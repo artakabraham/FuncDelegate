@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace FuncDelegate
 {
@@ -13,6 +14,14 @@ namespace FuncDelegate
                 new Employee{ Id = 102, Name="John"},
                 new Employee{ Id = 102, Name="Mary"}
             };
+
+            Func<Employee, string> selector = employee => "Name = " + employee.Name;
+            IEnumerable<string> names = employees.Select(selector);
+
+            foreach (string name in names)
+            {
+                Console.WriteLine(name);
+            }
         }
     }
 
